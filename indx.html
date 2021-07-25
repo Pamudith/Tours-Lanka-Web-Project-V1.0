@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name= "viewport" content="width=device-width, initial-scale = 1.0">
+	<title>Lanka Tours</title>
+	<link rel ="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="image/jpg" href="imgs/icon/logo.png"/>
+</head>
+<body>
+
+	<div id="hero">
+	<!-- Header -->
+
+		<div class="navbar">
+			<div class="logo"><img src="imgs/icon/logo.png" class= "logo"></div>
+			<div class="bu">
+			<button type="button">Explore</button>
+			<img src="imgs/icon/user.png" class="user" > 
+			</div>
+		</div>
+<!-- Left text area -->
+
+		<div class="container" >
+
+			<div class="info">
+				<h1> VISIT <br> SRI LANKA</h1>
+				<p> Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+					 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+					 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+					  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+					   anim id est laborum.</p>
+
+				<input type="text" placeholder="Search Destinations">
+			</div>
+		</div>
+
+	<!-- Small Preview images -->
+
+		<div class="slider">
+			<img src="imgs/icon/left-arrow.png" id ="prev">
+				<div class="preview">
+					<img src="imgs/small/Small-img-01.jpg" class="active thumbnail">
+					<img src="imgs/small/Small-img-02.jpg" class="thumbnail">
+					<img src="imgs/small/Small-img-03.jpg" class="thumbnail">
+					<img src="imgs/small/Small-img-04.jpg" class="thumbnail">
+					<img src="imgs/small/Small-img-05.jpg" class="thumbnail">
+					<img src="imgs/small/Small-img-06.jpg" class="thumbnail">
+				</div>
+			<img src="imgs/icon/right-arrow.png" id ="next">
+
+		</div>
+<!-- Audo HTML DIV -->
+
+		<div class="player">
+			<p>Click Here To Listen</p>
+			<img src="imgs/icon/play.png" id="icon">
+		</div>
+		
+	</div>
+<!-- Background Audio -->
+
+	<audio id="mysong">
+		<source src ="gajaga.mp3" type="audio/mp3">
+	</audio>
+
+
+	<!-- Internal JS here? -->
+
+	<script>	
+
+		var prev = document.getElementById('prev');
+		var next = document.getElementById('next');
+		var thumbnail = document.getElementsByClassName('thumbnail');
+		var hero = document.getElementById('hero');
+	
+		var backgroundImg = new Array (
+			"imgs/big/Big-img-01.jpg",
+			"imgs/big/Big-img-02.jpg",
+			"imgs/big/Big-img-03.jpg",
+			"imgs/big/Big-img-04.jpg",
+			"imgs/big/Big-img-05.jpg",
+			"imgs/big/Big-img-06.jpg",
+		);
+		let i = 0;
+		next.onclick = function(){
+			if( i < 5 ){
+			hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+			thumbnail[i+1].classList.add("active");
+			thumbnail[i].classList.remove("active");
+			i++;
+		}
+	}
+
+	prev.onclick = function(){
+			if( i > 0 ){
+			hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+			thumbnail[i-1].classList.add("active");
+			thumbnail[i].classList.remove("active");
+			i--;
+		}
+	}
+
+	var mySong = document.getElementById('mysong');
+	var icon = document.getElementById('icon');
+
+	icon.onclick = function(){
+		if(mySong.paused){
+			mysong.play();
+			icon.src = "imgs/icon/paused.png";
+		} else {
+			mysong.pause();
+			icon.src = "imgs/icon/play.png";
+
+		}
+	}
+
+	</script>
+	
+
+</body>
+</html>
